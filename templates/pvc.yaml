@@ -1,0 +1,20 @@
+{{- if and .Values.storage.useNfs .Values.storage.pvc.create }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.storage.pvc.name }}
+  labels:
+    app.kubernetes.io/name: {{ include "device-app.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  accessModes: {{ toYaml .Values.storage.pvc.accessModes | nindent 2 }}
+  resources:
+    requests:
+      storage: {{ .Values.storage.pvc.size }}
+  selector:
+    matchLabels:
+      device-app/pv-claim: {{ include "device-app.fullname" . }}-{{ .Values.storage.pvc.name }}
+{{- if .Values.storage.pvc.storageClassName }}
+  storageClassName: {{ .Values.storage.pvc.storageClassName }}
+{{- end }}
+{{- end }}

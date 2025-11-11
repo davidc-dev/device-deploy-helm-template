@@ -1,0 +1,13 @@
+{{- if .Values.config.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "device-app.fullname" . }}-config
+  labels:
+    app.kubernetes.io/name: {{ include "device-app.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+data:
+  device.yaml: |
+    device_id: {{ .Values.config.device_id | quote }}
+    device_name: {{ .Values.config.device_name | quote }}
+{{- end }}

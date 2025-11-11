@@ -1,0 +1,11 @@
+1) If using Azure Workload Identity:
+   - Ensure your ServiceAccount has the correct annotations (client-id / federated credential).
+   - The cluster must have Secrets Store CSI + AKV provider installed.
+
+2) If using Service Principal:
+   - Create a Secret with the client secret, and set values under akv.auth.servicePrincipal.
+   - Inject env vars in your workload as required by your cluster’s AKV provider configuration.
+
+3) NFS PV is disabled by default. If you enable it, confirm you have cluster privileges and SCC/SCRs allow NFS.
+
+4) If Route is enabled, access the app via the generated host or set values.route.host.

@@ -1,0 +1,19 @@
+{{- if and .Values.storage.useNfs .Values.storage.createPV }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.storage.pv.name }}
+  labels:
+    app.kubernetes.io/name: {{ include "device-app.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    device-app/pv-claim: {{ include "device-app.fullname" . }}-{{ .Values.storage.pvc.name }}
+spec:
+  capacity:
+    storage: {{ .Values.storage.pv.capacity }}
+  accessModes: {{ toYaml .Values.storage.pv.accessModes | nindent 2 }}
+  persistentVolumeReclaimPolicy: {{ .Values.storage.pv.persistentVolumeReclaimPolicy }}
+  mountOptions: {{ toYaml .Values.storage.pv.mountOptions | nindent 2 }}
+  nfs:
+    server: {{ .Values.storage.pv.nfs.server | quote }}
+    path: {{ .Values.storage.pv.nfs.path | quote }}
+{{- end }}
