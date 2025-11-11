@@ -16,5 +16,7 @@ spec:
       device-app/pv-claim: {{ include "device-app.fullname" . }}-{{ .Values.storage.pvc.name }}
 {{- if .Values.storage.pvc.storageClassName }}
   storageClassName: {{ .Values.storage.pvc.storageClassName }}
+{{- else if .Values.storage.createPV }}
+  storageClassName: ""
 {{- end }}
 {{- end }}
