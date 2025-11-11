@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>device-app Helm Repository</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; margin: 2rem; line-height: 1.5; }
+    code { background: #f5f5f5; padding: 0.1rem 0.3rem; border-radius: 4px; }
+    pre { background: #f5f5f5; padding: 1rem; border-radius: 6px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>device-app Helm Repository</h1>
+  <p>This GitHub Pages site hosts the packaged <code>device-app</code> Helm chart.</p>
+  <ol>
+    <li>Add the repo:</li>
+  </ol>
+  <pre><code>helm repo add device-app https://YOUR-USER.github.io/YOUR-REPO/
+helm repo update</code></pre>
+  <ol start="2">
+    <li>Install the chart:</li>
+  </ol>
+  <pre><code>helm install my-device device-app/device-app</code></pre>
+  <p>The Helm client reads <code>index.yaml</code> from this site to discover available chart versions.</p>
+</body>
+</html>
