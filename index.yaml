@@ -3,12 +3,12 @@ entries:
   device-app:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-11-25T17:21:21.122315916Z"
+    created: "2025-11-25T17:23:59.242730908Z"
     description: Modernized device app with AKV, NFS (optional), and OpenShift bits
-    digest: 40f894c013045f15a10ce044c72a066b17cd667c07524937b56687c291c9faee
+    digest: 68f1d2710693f8950397c609ea0278e8cf8371470fd96449e97ad12dfa2fc6b9
     name: device-app
     type: application
     urls:
     - https://davidc-dev.github.io/device-deploy-helm-template/device-app-0.2.0.tgz
     version: 0.2.0
-generated: "2025-11-25T17:21:21.120214474Z"
+generated: "2025-11-25T17:23:59.241997233Z"
