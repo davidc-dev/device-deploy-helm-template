@@ -7,6 +7,5 @@
 docs/
 .gitignore
 .github/
-.helmignore
 chart-packages/
 gh-pages-worktree/
